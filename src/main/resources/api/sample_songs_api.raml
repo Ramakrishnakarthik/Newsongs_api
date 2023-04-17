@@ -1,0 +1,44 @@
+#%RAML 1.0
+title: MP3 songs 
+description: by using this application we can fetch all audio songs
+baseUri: :http://localhost:8081/api
+/songs:
+  get:
+    queryParameters:
+      songtitle:
+        example: "get L"
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              [
+                  {
+                    "songId": "550e8400-e29b-41d4-a716-446655440000",
+                    "songTitle": "Get Lucky"
+                  },
+                  {
+                    "songId": "550e8400-e29b-41d4-a716-446655440111",
+                    "songTitle": "Loose yourself to dance"
+                  },
+                  {
+                    "songId": "550e8400-e29b-41d4-a716-446655440222",
+                    "songTitle": "geting"
+                  }
+                ]
+      400:
+       body:
+        application/json:
+         example:
+           {
+             "resposnecode": 400,
+             "status": "bad request"
+           }
+      500:
+       body:
+        application/json:
+         example:
+           {
+             "resposnecode": 500,
+             "status": "Server Error"
+           }
